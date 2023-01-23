@@ -7,3 +7,5 @@ CREATE TABLE Person (
 
 INSERT INTO Person(username, year_of_birth, password) VALUES ('user1', 1999, 'password1');
 INSERT INTO Person(username, year_of_birth, password) VALUES ('user2', 1999, 'password2');
+
+ALTER TABLE Person ADD COLUMN role varchar(100) NOT NULL;

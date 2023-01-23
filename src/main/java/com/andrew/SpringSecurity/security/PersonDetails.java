@@ -3,9 +3,11 @@ package com.andrew.SpringSecurity.security;
 import com.andrew.SpringSecurity.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class PersonDetails implements UserDetails {
     private Person person;
@@ -17,7 +19,7 @@ public class PersonDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singletonList(new SimpleGrantedAuthority(person.getRole()));
     }
 
     @Override
